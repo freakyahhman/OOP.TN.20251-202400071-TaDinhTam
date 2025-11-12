@@ -1,0 +1,4 @@
+Khi nạp chồng phương thức addDVD, trình biên dịch sẽ chọn phương thức phù hợp dựa trên số lượng và kiểu tham số. 
+Nếu có nhiều phương thức có thể khớp cùng lúc, lỗi "ambiguous method call" sẽ xảy ra. 
+Cách giải quyết là dùng varargs (addDVD(DigitalVideoDisc... discs)) để thay thế cho các phiên bản khác, 
+vì varargs cho phép thêm 1, 2 hoặc nhiều sản phẩm một cách linh hoạt, tránh mơ hồ.
