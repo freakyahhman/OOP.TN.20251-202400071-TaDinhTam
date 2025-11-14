@@ -44,17 +44,14 @@ public class Cart {
         }
     }
 
-    public void showCart() {
-        System.out.println("Showing all items in cart:");
+    public void print() {
+        System.out.println("=================== THE CURRENT CART ===================");
+        System.out.println("Total items: " + this.numberOrdered);
         for (DigitalVideoDisc disc : this.itemsInCart) {
-            System.out.println("Title: " + disc.getTitle());
-            System.out.println("Director: " + disc.getDirector());
-            System.out.println("Length: " + disc.getLength());
-            System.out.println("ID: " + disc.getID());
-            System.out.println(String.format("Date added: %s/%s/%s", disc.getDate()[0], disc.getDate()[1], disc.getDate()[2]));
-            System.out.println("Cost: " + disc.getCost());
-            System.out.println("---------------------------------------");
+            System.out.println(disc.toString());
         }
+        System.out.println("Subtotal: " + this.totalCost);
+        System.out.println("========================================================");
     }
 
     public static void sortByTitleThenCost(List<DigitalVideoDisc> items) {
@@ -90,6 +87,10 @@ public class Cart {
             System.out.println("Cannot order more than max number");
             return;
         }
+        if(num + this.numberOrdered < 0) {
+            System.out.println("Cannot reduce more than current number");
+            return;
+        }
         if (num > 0) {
             for (int i = 0; i < num; i++) {
                 this.itemsInCart.add(disc);
@@ -101,6 +102,7 @@ public class Cart {
                 this.itemsInCart.remove(disc); 
                 this.numberOrdered -= 1;
             }else {
+                System.out.println("No more disc to remove");
                 return;
             }
         }
