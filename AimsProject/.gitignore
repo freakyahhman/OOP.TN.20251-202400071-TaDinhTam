@@ -1,0 +1,6 @@
+#ignore .class files
+.class
+
+out/
+
+answers/gitignore_answers.txt

@@ -1,0 +1,13 @@
+Những đường dẫn trên (.settings, bin, .classpath, .project) nên được thêm vào file .gitignore vì:
+
+.settings, .classpath, .project: là các file cấu hình riêng của IDE (Eclipse), chứa thông tin về môi trường, đường dẫn thư viện, và thiết lập cá nhân. Chúng không ảnh hưởng đến mã nguồn và có thể khác nhau giữa các máy, nên không nên đưa lên Git để tránh xung đột.
+
+bin: là thư mục chứa các file .class sau khi biên dịch. Đây là file sinh ra tự động, không phải mã nguồn, nên không cần lưu trên Git.
+
+Nếu sử dụng các IDE khác như IntelliJ IDEA hoặc VSCode, cũng cần thêm các thư mục tương ứng của chúng (.idea/, .vscode/, out/, build/, v.v.) vào .gitignore vì lý do tương tự — chúng là file sinh ra tự động hoặc mang tính cá nhân.
+
+Trong trường hợp các file này đã được commit lên Git, mà sau đó mới thêm vào .gitignore, thì cần xóa chúng khỏi vùng theo dõi bằng lệnh:
+
+git rm -r --cached .
+git add .
+git commit -m "remove ignored files"
