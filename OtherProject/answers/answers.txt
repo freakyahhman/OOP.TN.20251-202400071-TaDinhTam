@@ -1,0 +1,58 @@
+First student: A
+Second student: B
+
+Java truyền tham số theo pass-by-value, kể cả object.
+
+
+Để hoạt động thật : 
+public static void swap(Students a, Students b) {
+    int tempId = a.id;
+    String tempName = a.name;
+
+    a.id = b.id;
+    a.name = b.name;
+
+    b.id = tempId;
+    b.name = tempName;
+}
+
+Minh họa: 
+
+Trước khi gọi swap(s1, s2)
+Heap:
+[Obj1: Students{id=1, name="A"}]
+[Obj2: Students{id=2, name="B"}]
+
+Stack (main):
+s1 → Obj1
+s2 → Obj2
+
+Khi gọi vào swap(a, b) — copies của reference được tạo
+Stack frame của method swap:
+a → Obj1   (copy của s1)
+b → Obj2   (copy của s2)
+
+
+Heap không thay đổi.
+
+Khi đổi dữ liệu bên trong:
+a.id = b.id;   → Obj1.id = 2
+a.name = b.name; → Obj1.name = "B"
+
+b.id = tempId;   → Obj2.id = 1
+b.name = tempName; → Obj2.name = "A"
+
+Heap sau swap:
+[Obj1: Students{id=2, name="B"}]
+[Obj2: Students{id=1, name="A"}]
+
+Stack:
+main:
+  s1 → Obj1  (B)
+  s2 → Obj2  (A)
+swap:
+  a  → Obj1
+  b  → Obj2
+
+
+Swap thành công vì object là thật trên heap.
