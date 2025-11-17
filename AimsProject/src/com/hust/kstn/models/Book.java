@@ -1,7 +1,8 @@
+package com.hust.kstn.models;
 import java.util.ArrayList;
 
 
-public class Book {
+public class Book  extends Media {
     public static class BookAuthor {
         private String fullName;
         private int yearOfBirth;
@@ -17,35 +18,17 @@ public class Book {
         }
     }
 
-    private int id;
-    private String title;
     private ArrayList<BookAuthor> authors;
-    private String category;
-    private double cost;
     private int length;
-    public Book(int id, String title, ArrayList<BookAuthor> authors, String category, double cost, int length) {
-        this.id = id;
-        this.title = title;
-        this.authors = authors;
-        this.category = category;
-        this.cost = cost;
+
+    public Book(int id, String title, String category, double cost, int length, ArrayList<BookAuthor> authors) {
+        super(title, category, cost);
         this.length = length;
+        this.authors = authors;
     }
 
-    public int getID() {
-        return this.id;
-    }
-    public String getTitle() {
-        return this.title;
-    }
     public ArrayList<BookAuthor> getAuthors() {
         return this.authors;
-    }
-    public String getCategory() {
-        return this.category;
-    }
-    public double getCost() {
-        return this.cost;
     }
     public int getLength() {
         return this.length;

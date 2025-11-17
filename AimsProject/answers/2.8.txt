@@ -1,0 +1,71 @@
+Tránh vấn đề kim cương (Nếu A có hàm print, B, C kế thừa A, không override gì, D kế thừa từ B và C thì khi đó java sẽ không biết nên gọi hàm print của B hay C)
+Java được thiết kế:
+
+Dễ dùng hơn C++
+
+Dễ đọc
+
+Dễ bảo trì
+
+Ít lỗi runtime hơn
+
+Đa kế thừa class sẽ tạo:
+
+xung đột tên hàm
+
+xung đột biến
+
+xung đột constructor
+
+thứ tự gọi constructor phức tạp
+
+khó debug
+
+Java chọn đơn giản / predictable hơn là "quá mạnh và nguy hiểm" như C++.
+
+Java thay thế đa kế thừa bằng Interface (đa kế thừa hành vi, không đa kế thừa trạng thái)
+
+Java CHO phép:
+
+ đa kế thừa interface
+ không đa kế thừa class
+
+Vì interface:
+
+Không có state (trước Java 8)
+
+Không có field instance
+
+Không có constructor
+
+Không tạo ra vấn đề diamond với dữ liệu
+
+→ Không gây xung đột nguy hiểm như đa kế thừa class.
+
+Khi Java 8 cho phép default method trong interface, Java có cơ chế giải quyết rõ ràng:
+
+InterfaceA.super.method();
+
+
+Giảm độ phức tạp của hệ thống type và compiler
+
+C++ khi hỗ trợ đa kế thừa phải xử lý:
+
+vtable resolution phức tạp
+
+pointer offset adjustment
+
+virtual inheritance
+
+ambiguity resolution nhiều cấp
+
+Java bỏ hết những thứ phức tạp này để:
+
+compiler đơn giản hơn
+
+runtime đơn giản hơn
+
+JVM dễ tối ưu hóa
+
+code dễ hiểu hơn
+
