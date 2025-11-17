@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 
-public class CD {
+public class CompactDisc {
     public static class Track {
         private String title;
         private int length;
@@ -31,7 +31,7 @@ public class CD {
     private ArrayList<Track> tracks;
     private int length;
 
-    public CD(int id, String title, String[] artists, String category, double cost) {
+    public CompactDisc(int id, String title, String[] artists, String category, double cost) {
         this.id = id;
         this.title = title;
         this.artists = artists;
@@ -48,7 +48,15 @@ public class CD {
         }
     }
 
-    public int getLength() {
+    public void removeTrack(Track track) {
+        if(this.tracks.contains(track)) {
+            this.tracks.remove(track);
+        } else {
+            System.out.println("Track not found in the CD");
+        }
+    }
+
+    public int totalLength() {
         int totalLength = 0;
         for (Track track : tracks) {
             totalLength += track.length;
@@ -71,5 +79,10 @@ public class CD {
             }
             track.play();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "CD [" + this.id + "] - [" + this.title + "] - [" + this.category + "] - [" + this.cost + "] - [" + this.length + "]";
     }
 }
