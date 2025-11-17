@@ -1,6 +1,5 @@
 package com.hust.kstn.models;
 import java.util.ArrayList;
-import java.utils.ArrayList;
 
 public class Store {
     private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<>();

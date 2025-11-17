@@ -1,18 +1,17 @@
 package com.hust.kstn;
 import com.hust.kstn.models.Cart;
 import com.hust.kstn.models.DigitalVideoDisc;
-
 import java.util.Scanner;
 
 public class Aims {
 
     public static void main(String[] args) {
 
-        DigitalVideoDisc superman = new DigitalVideoDisc("Superman", "Science fiction", "James Gunn", "10/07/2025", 1, 129, 36);
+        DigitalVideoDisc superman = new DigitalVideoDisc("Superman", "Science fiction", "James Gunn", "10/07/2025", 129, 36);
 
-        DigitalVideoDisc batman = new DigitalVideoDisc("Batman", "Romance", "Ronaldo", "10/10/2006", 2, 136, 37);
+        DigitalVideoDisc batman = new DigitalVideoDisc("Batman", "Romance", "Ronaldo", "10/10/2006", 2, 37);
 
-        DigitalVideoDisc spiderman = new DigitalVideoDisc("Spiderman", "Action", "Messi", "01/10/2006", 3, 200, 34);
+        DigitalVideoDisc spiderman = new DigitalVideoDisc("Spiderman", "Action", "Messi", "01/10/2006", 3, 34);
 
         Cart cart = new Cart();
 
@@ -46,7 +45,7 @@ public class Aims {
             }
 
             if (option == 2) {
-                cart.showCart();
+                cart.print();
                 continue;
             }
 

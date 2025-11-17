@@ -56,6 +56,14 @@ public class DigitalVideoDisc {
         return this.cost;
     }
 
+    public void play() {
+        if(this.length <= 0) {
+            System.out.println("ERROR: DVD length is non-positive!");
+            return;
+        }
+        System.out.println("Playing DVD: " + this.title + " - Length: " + this.length);
+    }
+
     @Override
     public String toString() {
         return "- DVD [" + this.id + "] - [" + this.title + "] - [" + this.cost + "] - [" + this.length + "] - [" + this.category + "] - [" + this.director + "]";
