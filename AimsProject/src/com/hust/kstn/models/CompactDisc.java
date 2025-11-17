@@ -1,8 +1,8 @@
 import java.util.ArrayList;
+package com.hust.kstn.models;
 
 
-
-public class CompactDisc {
+public class CompactDisc extends Disc {
     public static class Track {
         private String title;
         private int length;
@@ -23,21 +23,15 @@ public class CompactDisc {
             return title.equals(track.title); 
         }
     }
-    private int id;
-    private String title;
     private String[] artists;
-    private String category;
-    private double cost;
     private ArrayList<Track> tracks;
     private int length;
 
-    public CompactDisc(int id, String title, String[] artists, String category, double cost) {
-        this.id = id;
-        this.title = title;
+    public CompactDisc(String title, String category, double cost, String[] artists, ArrayList<Track> tracks) {
+        super(title, category, cost);
         this.artists = artists;
-        this.category = category;
-        this.cost = cost;
-        this.tracks = new ArrayList<>();
+        this.tracks = tracks;
+        this.length = 0;
     }
 
     public void addTrack(Track track) {
@@ -67,7 +61,7 @@ public class CompactDisc {
 
 
     public void play() {
-        System.out.println("Playing CD: " + this.title);
+        System.out.println("Playing CD: " + getTitle());
         for (Track track : tracks) {
             if (track == null) {
                 System.out.println("Error: CD has no tracks to play");
@@ -83,6 +77,6 @@ public class CompactDisc {
 
     @Override
     public String toString() {
-        return "CD [" + this.id + "] - [" + this.title + "] - [" + this.category + "] - [" + this.cost + "] - [" + this.length + "]";
+        return "CD [" + getID() + "] - [" + getTitle() + "] - [" + getCategory() + "] - [" + getCost() + "] - [" + this.length + "]";
     }
 }
